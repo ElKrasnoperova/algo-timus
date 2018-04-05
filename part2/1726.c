@@ -32,11 +32,12 @@ void q_sort(long long * coordinats, long long left, long long right) {
 
 int main() {
   long long n;
-  long long dif_sum = 0;  
+  long long sum = 0;  
 
   scanf("%lld", &n);
-  long long* x = (long long*)malloc(sizeof(long long) * n);
-  long long* y = (long long*)malloc(sizeof(long long) * n);
+  long long x[n];
+  long long y[n];
+
 
   for (long long i = 0; i < n; i++) {
     scanf("%lld%lld", &x[i], &y[i]);
@@ -47,13 +48,11 @@ int main() {
   q_sort(y, 0, n - 1);
   
   for (long long i = 1; i < n; i++) {
-    dif_sum += (x[i] - x[i - 1]) * i * (n - i);
-  }
-  for (long long i = 1; i < n; i++) {
-    dif_sum += (y[i] - y[i - 1]) * i * (n - i);
+    sum += (x[i] - x[i - 1]) * i * (n - i);
+    sum += (y[i] - y[i - 1]) * i * (n - i);
   }
     
-  long long result = (long long)(dif_sum * 2 / (n * (n - 1)));
+  long long result = (long long)(sum * 2 / (n * (n - 1)));
 
   printf("%lld\n", result);
   return 0;
