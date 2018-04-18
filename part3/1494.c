@@ -6,22 +6,22 @@
 int main() {
 	int n;
 	bool result = true;
-	int position = 0;
-	int position2 = 0;
+	int position_input = 0;
+	int position_reverse = 0;
 	int size = 0;
 	scanf("%d", &n);
-	int a[n];
-	int st[n];
+	int input[n];
+	int reverse[n];
 	for (int i = 0; i < n; i++) {
-		scanf("%d", &a[i]);
+		scanf("%d", &input[i]);
 	}
-	while (result && (position < n)) {
-		if ((size > 0) && (st[size -1] == a[position])) {
+	while (result && (position_input < n)) {
+		if ((size > 0) && (reverse[size -1] == input[position_input])) {
 			size--;
-			position++;
-		} else if (position2 < n) {
-			position2++;
-			st[size] = position2;
+			position_input++;
+		} else if (position_reverse < n) {
+			position_reverse++;
+			reverse[size] = position_reverse;
 			size++;
 		}
 		else result = false;
